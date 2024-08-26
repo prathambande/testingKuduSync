@@ -39,9 +39,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    # environment:
+    #   name: 'Production'
+    #   url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
 
@@ -71,6 +71,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'nodeappkudusync'
-  #         slot-name: 'Production'
-  #         package: .
+          slot-name: 'Production'
+          package: .
           
